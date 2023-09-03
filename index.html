@@ -355,7 +355,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="row">
 			<div class="col-md-6 slideanim">
 				<div class="contact-details">
-					<form id="gform" action="https://script.google.com/macros/s/AKfycbxhsZQpRzuMLj2AU7ItAIDMZX7xgFXzClUJojGAWtvwWq0CnaAKX5y-kdALDw1_6uIRpA/exec" method="post">
+					<form id="submit-form" action="">
 						<div class="row">
 							<div class="col-sm-12 form-group">
 								<input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
@@ -478,5 +478,26 @@ $(document).ready(function(){
 	<!-- /js for sliding -->
 	<!-- /js files -->
 	
+
+	<script>
+		$("#submit-form").submit((e)=>{
+				e.preventDefault()
+				$.ajax({
+						url:"https://script.google.com/macros/s/AKfycbxhsZQpRzuMLj2AU7ItAIDMZX7xgFXzClUJojGAWtvwWq0CnaAKX5y-kdALDw1_6uIRpA/exec",
+						data:$("#submit-form").serialize(),
+						method:"post",
+						success:function (response){
+								alert("Form submitted successfully")
+								window.location.reload()
+								//window.location.href="https://google.com"
+						},
+						error:function (err){
+								alert("Something Error")
+
+						}
+				})
+		})
+</script>
+
 </body>
 </html>	
